@@ -15,5 +15,4 @@ poetry==1.8.2
 wheel==0.43.0
 env==0.1.0
 # Build dependencies
-build-essential
 python3-dev
