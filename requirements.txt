@@ -13,3 +13,4 @@ chromadb==0.4.24
 pysqlite3==0.5.2
 poetry==1.8.2
 wheel==0.43.0
+env==0.1.0
