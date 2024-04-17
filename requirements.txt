@@ -9,4 +9,4 @@ beautifulsoup4
 crewai==0.27.2
 pydantic
 langchain-anthropic
-pysqlite3
+pysqlite3-binary
