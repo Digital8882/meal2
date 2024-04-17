@@ -1,6 +1,5 @@
 ﻿crewai==0.27.2
 crewai-tools==0.1.4
-langchain==0.1.16
 langchain-anthropic==0.1.4
 langchain-community==0.0.32
 langchain-core==0.1.42
@@ -13,7 +12,3 @@ chromadb==0.4.24
 pysqlite3==0.5.2
 poetry==1.8.2
 wheel==0.43.0
-env==0.1.0
-docker-dev-python==1.0a3
-PyYAML==6.0.1
-click==8.1.7
