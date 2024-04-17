@@ -9,3 +9,4 @@ streamlit
 chromadb
 langchain-anthropic
 pysqlite3
+pypika
