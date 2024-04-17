@@ -13,4 +13,4 @@ chroma-hnswlib==0.7.3
 sqlite3==2.6.0
 chromadb==0.3.29
 pysqlite3==3.38.3
-python==3.4
+python==11
