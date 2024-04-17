@@ -5,6 +5,7 @@ import os
 
 
 Nutritionist = Agent(
+    llm=ANTHROPIC_API_KEY()
     role='Nutritionist',
     goal=f'prescribe healthy meal plan',
     backstory=f""" you are an expert nutritonist""",
