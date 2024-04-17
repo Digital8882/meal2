@@ -10,5 +10,4 @@ python-dotenv==1.0.0
 typing_extensions==4.10.0
 typing-inspect==0.9.0
 chroma-hnswlib==0.7.3
-sqlite==3.43.1
 python==3.11
