@@ -6,8 +6,8 @@ langchain-community==0.0.32
 langchain-core==0.1.42
 langchain-openai==0.0.5
 streamlit==1.33.0
-python-dotenv==1.0.0
+python-dotenv==0.21.0
 typing_extensions==4.10.0
 typing-inspect==0.9.0
 chroma-hnswlib==0.7.3
-chromadb==3.35.0
+chromadb==0.3.6
