@@ -1,6 +1,5 @@
 from langchain_anthropic import ChatAnthropic
 from crewai import Crew, Process, Agent
-import os
 
 ANTHROPIC_API_KEY=()
 
