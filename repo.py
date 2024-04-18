@@ -1,5 +1,6 @@
 from langchain_anthropic import ChatAnthropic
 from crewai import Crew, Process, Agent
+from dotenv import load_dotenv
 
 api_key="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"
 
