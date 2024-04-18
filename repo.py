@@ -1,7 +1,8 @@
 from langchain_anthropic import ChatAnthropic
 from crewai import Crew, Process, Agent
 
-ANTHROPIC_API_KEY=()
+api_key="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"
+
 
 Nutritionist = Agent(
     role='Nutritionist',
@@ -10,8 +11,7 @@ Nutritionist = Agent(
     verbose=False,
     allow_delegation=True,
     max_rpm=5,
-    llm=ANTHROPIC_API_KEY=()
-    ChatAnthropic(model="claude-3-sonnet-20240229", max_tokens=4069)
+    llm=ChatAnthropic(model="claude-3-sonnet-20240229", max_tokens=4069)
 )
 
 
