@@ -2,7 +2,7 @@ from langchain_anthropic import ChatAnthropic
 from crewai import Crew, Process, Agent
 from dotenv import load_dotenv
 import os
-os.environ["ANTHROPIC_API_KEY"] ="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"
+os.environ["ANTHROPIC_API_KEY"] ="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"
 
 Nutritionist = Agent(
     role='Nutritionist',
