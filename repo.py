@@ -11,7 +11,7 @@ Nutritionist = Agent(
     verbose=False,
     allow_delegation=True,
     max_rpm=5,
-    model=ChatAnthropic(model="claude-3-sonnet-20240229", max_tokens=4069)
+    llm=ChatAnthropic(model="claude-3-sonnet-20240229", max_tokens=4069)
 )
 
 
