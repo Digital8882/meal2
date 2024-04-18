@@ -1,6 +1,7 @@
 from langchain_anthropic import ChatAnthropic
 from crewai import Crew, Process, Agent
 from dotenv import load_dotenv
+import os
 load_dotenv()
 ANTHROPIC_API_KEY = os.getenv('ANTHROPIC_API_KEY')
 
