@@ -2,7 +2,7 @@ from langchain_anthropic import ChatAnthropic
 from crewai import Crew, Process, Agent
 import os
 
- llm=ANTHROPIC_API_KEY()
+llm=ANTHROPIC_API_KEY()
 Nutritionist = Agent(
     role='Nutritionist',
     goal=f'prescribe healthy meal plan',
