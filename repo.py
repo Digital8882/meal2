@@ -2,6 +2,7 @@ from langchain_anthropic import ChatAnthropic
 from crewai import Crew, Process, Agent
 import os
 
+llm=ANTHROPIC_API_KEY()
 Nutritionist = Agent(
     role='Nutritionist',
     goal=f'prescribe healthy meal plan',
@@ -9,7 +10,6 @@ Nutritionist = Agent(
     verbose=False,
     allow_delegation=True,
     max_rpm=5,
-    llm=ChatAnthropic(model="claude-3-sonnet-20240229", max_tokens=4069),
 )
 
 
