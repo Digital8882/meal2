@@ -2,7 +2,7 @@ from langchain_anthropic import ChatAnthropic
 from crewai import Crew, Process, Agent
 from dotenv import load_dotenv
 
-llm=Anthropic_Api_key()
+llm=ANTHROPIC_API_KEY()
 
 load_dotenv()
 
@@ -13,6 +13,7 @@ Nutritionist = Agent(
     verbose=False,
     allow_delegation=True,
     max_rpm=5,
+    model=ChatAnthropic(model="claude-3-sonnet-20240229", max_tokens=4069)
 )
 
 
