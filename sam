@@ -1,0 +1,76 @@
+import streamlit as st
+from langchain_openai import ChatOpenAI
+from crewai import Crew, Process, Agent, Task
+from dotenv import load_dotenv
+import os
+from crewai_tools import EXASearchTool
+
+load_dotenv()
+
+os.environ["OPENAI_API_KEY"] = "your_openai_api_key"
+os.environ["EXA_API_KEY"] = "your_exa_api_key"
+
+exa_search_tool = EXASearchTool()
+
+def create_agents_and_tasks(topic):
+    researcher = Agent(
+        role='Researcher',
+        goal=f'Conduct thorough research on {topic}',
+        backstory=f"""You are an expert researcher with vast knowledge across various fields. 
+        You've been hired to gather comprehensive information on {topic}.""",
+        verbose=False,
+        allow_delegation=True,
+        max_rpm=5,
+        llm=ChatOpenAI(model="gpt-4", max_tokens=4000),
+        tools=[exa_search_tool]
+    )
+    
+    writer = Agent(
+        role='Writer',
+        goal=f'Create an engaging and informative blog post about {topic}',
+        backstory=f"""You are a skilled writer with a talent for explaining complex topics in an 
+        accessible and engaging manner. Your task is to craft a compelling blog post about {topic}.""",
+        verbose=False,
+        allow_delegation=True,
+        max_rpm=5,
+        llm=ChatOpenAI(model="gpt-4", max_tokens=4000)
+    )
+    
+    research_task = Task(
+        description=f"Conduct in-depth research on {topic}",
+        expected_output=f"A comprehensive summary of key information about {topic}, including main points, interesting facts, and relevant statistics. Maximum 500 words.",
+    )
+    
+    writing_task = Task(
+        description=f"Write an engaging blog post about {topic}",
+        expected_output=f"A well-structured, informative, and engaging blog post about {topic}. The post should be around 1000 words, include an attention-grabbing introduction, main body with key points, and a conclusion.",
+    )
+    
+    return [researcher, writer], [research_task, writing_task]
+
+def run_crew(topic):
+    agents, tasks = create_agents_and_tasks(topic)
+    
+    crew = Crew(
+        agents=agents,
+        tasks=tasks,
+        manager_llm=ChatOpenAI(temperature=0, model="gpt-4", max_tokens=4000),
+        max_rpm=4,
+        process=Process.hierarchical
+    )
+    
+    result = crew.kickoff()
+    return result
+
+st.title("Blog Post Generator")
+
+topic = st.text_input("Enter the topic for your blog post:")
+
+if st.button("Generate Blog Post"):
+    if topic:
+        with st.spinner("Generating blog post..."):
+            result = run_crew(topic)
+        st.success("Blog post generated successfully!")
+        st.markdown(result)
+    else:
+        st.warning("Please enter a topic before generating the blog post.")
