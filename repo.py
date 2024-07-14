@@ -1,8 +1,10 @@
 from langchain_openai import ChatOpenAI
 from crewai import Crew, Process, Agent
 from dotenv import load_dotenv
+from crewai_tools import EXASearchTool
 import os
 os.environ["OPENAI_API_KEY"] ="key here"
+os.environ["EXA_API_KEY"] = "key here"
 
 
 
@@ -38,12 +40,12 @@ search_tool = DuckDuckGoSearchRun()
 task1 = Task(
     description=f"""a balanced diet meal plan """,
     expected_output=f"""300 words maximum, a healthy meal plan""",
-    output_file='diet_report4.docx',
+    output_file='research1.docx',
 )
 task2 = Task(
     description=f"""a balanced diet meal plan """,
     expected_output=f"""300 words maximum, a healthy meal plan""",
-    output_file='diet_report4.docx',
+    output_file='research2.docx',
 )
 
 
